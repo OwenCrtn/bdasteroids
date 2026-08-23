@@ -28,6 +28,6 @@ class CircleShape(pygame.sprite.Sprite):
         total_radius = self.radius+other.radius
         distance= self.position.distance_to(other.position)
 
-        if total_radius >distance:
+        if total_radius <distance:
             return False
         return True
