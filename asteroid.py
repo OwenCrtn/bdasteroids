@@ -1,6 +1,7 @@
 from circleshape import CircleShape
 import pygame
-from constants import LINE_WIDTH
+from constants import LINE_WIDTH,ASTEROID_MIN_RADIUS
+from logger import log_event,log_state
 
 
 
@@ -14,4 +15,14 @@ class Asteroid(CircleShape):
     def update(self,dt):
         unit_vector= pygame.Vector2(0,1)
         self.position+=( self.velocity * dt)
+
+    def split(self):
+        self.kill()
+        if self.radius <= ASTEROID_MIN_RADIUS:
+            return
+        log_event('asteroid_split')
         
+
+
+        
+    
